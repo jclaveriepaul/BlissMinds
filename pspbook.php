@@ -19,6 +19,18 @@
     </script>
 </head>
 <body>
-    <div id="datepicker"></div>
+<form action="book_appointment.php" method="post">
+        <label for="clientname">Name:</label><br>
+        <input type="text" id="clientname" name="clientname" required><br>
+        <label for="clientemail">Email:</label><br>
+        <input type="email" id="clientemail" name="clientemail" required><br>
+        <label for="clientphonenumber">Phone (optional):</label><br>
+        <input type="tel" id="clientphonenumber" name="clientphonenumber"><br>
+        <label for="clientrequests">Specific requests (optional):</label><br>
+        <textarea id="clientrequests" name="clientrequests"></textarea><br>
+        <label for="date">Date:</label><br>
+        <input type="text" id="datepicker" name="date" required><br>
+        <input type="submit" value="Book Appointment">
+    </form>
 </body>
 </html>
