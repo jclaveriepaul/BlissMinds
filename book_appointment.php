@@ -1,6 +1,14 @@
 <?php
 session_start();
-$appointmenttype = $_SESSION['appointmenttype'] ?? 'Unknown';
+if (isset($_SESSION['appointmenttype'])) {
+    $appointmenttype = $_SESSION['appointmenttype'];
+} else {
+    $appointmenttype = 'Unknown';
+}
+
+echo '<pre>';
+var_dump($_POST);
+echo '</pre>';
 
 $host = 'mysql-200-128.mysql.fasthosts.co.uk';
 $db   = 'CSY2088';
@@ -21,15 +29,8 @@ $clientemail = $_POST['clientemail'] ?? 'Unknown';
 $clientphonenumber = !empty($_POST['clientphonenumber']) ? $_POST['clientphonenumber'] : 'N/A';
 $clientrequests = $_POST['clientrequests'] ?? 'Unknown';
 $date = $_POST['date'] ?? 'Unknown';
+$appointmenttype = $_POST['appointmenttype'] ?? 'Unknown';
 
-
-// Determine the appointment type based on the referer
-
-if (isset($_GET['appointmenttype'])) {
-    $appointmenttype = $_GET['appointmenttype'];
-} else {
-    $appointmenttype = 'Unknown';
-}
 
 $sql = "INSERT INTO BlissMinds (clientname, clientemail, clientphonenumber, clientrequests, date, appointmenttype) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt= $pdo->prepare($sql);
