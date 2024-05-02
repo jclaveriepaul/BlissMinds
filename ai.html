@@ -6,20 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <style>
-        body{
+        body {
             background-color: #FFF0EC;
         }
 
-        button{
-            background-color: #CFF4EC;
-            color: black;
+        h1 {
+            color: #000;
+            /* Dark text for the main heading */
         }
+
+        h2 {
+            font-size: larger;
+            font-weight: bold;
+            /* Larger and bold font for the 'Our Services' heading */
+        }
+
+        .book-now-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: #fff;
+            text-decoration: none;
+        }
+
         .services {
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-items: center;
+            align-content: center;
         }
+
         .service {
             display: flex;
             justify-content: space-between;
@@ -37,25 +54,25 @@
         <hr>
         <div class="service">
             <p>Peer Support Network</p>
-            <p>1hr</p> 
-            <button onclick="pspbook.php">Book Now</button>
+            <p>1hr</p>
+            <a class="book-now-btn" href="book_appointment.php?appointmenttype=Peer Support Network">Book Now</a>
         </div>
         <hr>
         <div class="service">
             <p>Individual Therapy</p>
-            <p>1hr</p> 
+            <p>1hr</p>
             <button onclick="itbook.php">Book Now</button>
         </div>
         <hr>
         <div class="service">
             <p>Virtual Consultation</p>
-            <p>1hr</p> 
+            <p>1hr</p>
             <button onclick="vcbook.php">Book Now</button>
         </div>
         <hr>
         <div class="service">
             <p>Relaxation Techniques</p>
-            <p>1hr</p> 
+            <p>1hr</p>
             <button onclick="rtbook.php">Book Now</button>
         </div>
         <hr>
