@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
+$host = 'mysql-200-128.mysql.fasthosts.co.uk';
 $db   = 'CSY2088';
 $user = 'jclaveriepaul';
 $pass = 'jclaver1epaul';
