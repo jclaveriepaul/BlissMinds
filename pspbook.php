@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['appointmenttype'] = $_GET['appointmenttype'] ?? 'Unknown';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +34,9 @@
         <textarea id="clientrequests" name="clientrequests"></textarea><br>
         <label for="date">Date:</label><br>
         <input type="text" id="datepicker" name="date" required><br>
+        <input type="hidden" name="appointmenttype" value="Peer Support Network">
         <input type="submit" value="Book Appointment">
     </form>
+
 </body>
 </html>

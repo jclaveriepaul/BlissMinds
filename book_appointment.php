@@ -1,10 +1,6 @@
 <?php
-
-
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+session_start();
+$appointmenttype = $_SESSION['appointmenttype'] ?? 'Unknown';
 
 $host = 'mysql-200-128.mysql.fasthosts.co.uk';
 $db   = 'CSY2088';
@@ -20,11 +16,12 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
-$clientname = $_POST['clientname'];
-$clientemail = $_POST['clientemail'];
-$clientphonenumber = $_POST['clientphonenumber'];
-$clientrequests = $_POST['clientrequests'];
-$date = $_POST['date'];
+$clientname = $_POST['clientname'] ?? 'Unknown';
+$clientemail = $_POST['clientemail'] ?? 'Unknown';
+$clientphonenumber = !empty($_POST['clientphonenumber']) ? $_POST['clientphonenumber'] : 'N/A';
+$clientrequests = $_POST['clientrequests'] ?? 'Unknown';
+$date = $_POST['date'] ?? 'Unknown';
+
 
 // Determine the appointment type based on the referer
 
