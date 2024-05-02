@@ -6,10 +6,6 @@ if (isset($_SESSION['appointmenttype'])) {
     $appointmenttype = 'Unknown';
 }
 
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
-
 $host = 'mysql-200-128.mysql.fasthosts.co.uk';
 $db   = 'CSY2088';
 $user = 'jclaveriepaul';
@@ -30,7 +26,7 @@ $clientphonenumber = !empty($_POST['clientphonenumber']) ? $_POST['clientphonenu
 $clientrequests = $_POST['clientrequests'] ?? 'Unknown';
 $date = $_POST['date'] ?? 'Unknown';
 if ($date !== 'Unknown') {
-    $date = DateTime::createFromFormat('m/d/Y', $date)->format('Y-m-d');
+    $date = DateTime::createFromFormat('mm/dd/yyyy', $date)->format('Y-m-d');
 }
 $appointmenttype = $_POST['appointmenttype'] ?? 'Unknown';
 $appointmenttime = $_POST['appointmenttime'] ?? 'Unknown';
