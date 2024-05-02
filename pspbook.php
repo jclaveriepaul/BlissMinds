@@ -22,15 +22,16 @@ $_SESSION['appointmenttype'] = $_SESSION['appointmenttype'] ?? 'Unknown';
                 $("#datepicker").datepicker({
                     beforeShowDay: function (date) {
                         var string = jQuery.datepicker.formatDate('dd-mm-yy', date);
-                        return [!(string in bookedDatesAndTimes)];
+                        return [!(string in bookedDatesAndTimes && bookedDatesAndTimes[string].length >= 12)];
                     },
                     minDate: 0,
-                    onSelect: function(dateText) {
+                    onSelect: function (dateText) {
                         var bookedTimes = bookedDatesAndTimes[dateText] || [];
-                        $('#timepicker').timepicker('option', 'disableTimeRanges', bookedTimes.map(function(time) {
+                        $('#timepicker').timepicker('option', 'disableTimeRanges', bookedTimes.map(function (time) {
                             return [time, time];
                         }));
-                    }
+                    },
+                    dateFormat: 'dd-mm-yy'
                 });
             });
 

@@ -20,13 +20,17 @@ $opt = [
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
 
+var_dump($date);
+$date = DateTime::createFromFormat('d-m-y', $date)->format('Y-m-d');
+var_dump($date);
+
 $clientname = $_POST['clientname'] ?? 'Unknown';
 $clientemail = $_POST['clientemail'] ?? 'Unknown';
 $clientphonenumber = !empty($_POST['clientphonenumber']) ? $_POST['clientphonenumber'] : 'N/A';
 $clientrequests = $_POST['clientrequests'] ?? 'Unknown';
 $date = $_POST['date'] ?? 'Unknown';
 if ($date !== 'Unknown') {
-    $date = DateTime::createFromFormat('mm/dd/yyyy', $date)->format('Y-m-d');
+    $date = DateTime::createFromFormat('d-m-y', $date)->format('Y-m-d');
 }
 $appointmenttype = $_POST['appointmenttype'] ?? 'Unknown';
 $appointmenttime = $_POST['appointmenttime'] ?? 'Unknown';
@@ -34,6 +38,10 @@ $appointmenttime = $_POST['appointmenttime'] ?? 'Unknown';
 $sql = "INSERT INTO BlissMinds (clientname, clientemail, clientphonenumber, clientrequests, date, appointmenttype, appointmenttime) VALUES (?, ?, ?, ?, ?, ?, ?)";
 $stmt= $pdo->prepare($sql);
 $stmt->execute([$clientname, $clientemail, $clientphonenumber, $clientrequests, $date, $appointmenttype, $appointmenttime]);
+
+var_dump($date);
+$date = DateTime::createFromFormat('d-m-y', $date)->format('Y-m-d');
+var_dump($date);
 
 // Send an email to the user with the details of their appointment
 $to = $clientemail;
