@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <style>
+        body{
+            background-color: #FFF0EC;
+        }
+
+        button{
+            background-color: #CFF4EC;
+            color: black;
+        }
+        .services {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .service {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Book an online appointment</h1>
+    <p>Fill in the form below to book an online appointment with us.</p>
+    <div class="services">
+        <h2>Our Services</h2>
+        <hr>
+        <div class="service">
+            <p>Peer Support Network</p>
+            <p>1hr</p> 
+            <button onclick="pspbook.php">Book Now</button>
+        </div>
+        <hr>
+        <div class="service">
+            <p>Individual Therapy</p>
+            <p>1hr</p> 
+            <button onclick="itbook.php">Book Now</button>
+        </div>
+        <hr>
+        <div class="service">
+            <p>Virtual Consultation</p>
+            <p>1hr</p> 
+            <button onclick="vcbook.php">Book Now</button>
+        </div>
+        <hr>
+        <div class="service">
+            <p>Relaxation Techniques</p>
+            <p>1hr</p> 
+            <button onclick="rtbook.php">Book Now</button>
+        </div>
+        <hr>
+    </div>
+</body>
+
+</html>
