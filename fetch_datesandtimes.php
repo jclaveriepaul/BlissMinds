@@ -15,17 +15,19 @@ $opt = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $opt);
 
-    $stmt = $pdo->query('SELECT date FROM BlissMinds');
-    $bookedDates = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+    $stmt = $pdo->query('SELECT date, appointmenttime FROM BlissMinds');
+    $bookedAppointments = $stmt->fetchAll();
 
-    // Convert datetime to date
-    $bookedDates = array_map(function($date) {
-        return date('Y-m-d', strtotime($date));
-    }, $bookedDates);
+    $bookedDatesAndTimes = [];
+    foreach ($bookedAppointments as $appointment) {
+        $date = date('d-m-Y', strtotime($appointment['date']));
+        $time = date('H:i', strtotime($appointment['appointmenttime']));
+        $bookedDatesAndTimes[$date][] = $time;
+    }
 } catch (Exception $e) {
     // If an error occurs, return an empty array
-    $bookedDates = [];
+    $bookedDatesAndTimes = [];
 }
 
-echo json_encode($bookedDates);
+echo json_encode($bookedDatesAndTimes);
 ?>
