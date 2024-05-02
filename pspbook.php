@@ -18,10 +18,11 @@ $_SESSION['appointmenttype'] = $_SESSION['appointmenttype'] ?? 'Unknown';
 
             $.getJSON('fetch_datesandtimes.php', function (data) {
                 bookedDatesAndTimes = data;
+                console.log(bookedDatesAndTimes);  // Log the data returned by the PHP script
 
                 $("#datepicker").datepicker({
                     beforeShowDay: function (date) {
-                        var string = jQuery.datepicker.formatDate('dd-mm-yy', date);
+                        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
                         return [!(string in bookedDatesAndTimes && bookedDatesAndTimes[string].length >= 12)];
                     },
                     minDate: 0,
@@ -30,8 +31,14 @@ $_SESSION['appointmenttype'] = $_SESSION['appointmenttype'] ?? 'Unknown';
                         $('#timepicker').timepicker('option', 'disableTimeRanges', bookedTimes.map(function (time) {
                             return [time, time];
                         }));
+
+                        // Calculate the number of available sessions
+                        var availableSessions = 12 - bookedTimes.length;
+
+                        // Update the content of the 'availableSessions' element
+                        $('#availableSessions').text('Available sessions: ' + availableSessions);
                     },
-                    dateFormat: 'dd-mm-yy'
+                    dateFormat: 'yy-mm-dd'
                 });
             });
 
@@ -60,10 +67,11 @@ $_SESSION['appointmenttype'] = $_SESSION['appointmenttype'] ?? 'Unknown';
         <input type="text" id="datepicker" name="date" required><br>
         <label for="time">Time:</label><br>
         <input type="text" id="timepicker" name="appointmenttime" required><br>
+        <p id="availableSessions"></p>
         <input type="hidden" name="appointmenttype" value="<?php echo $_SESSION['appointmenttype']; ?>">
         <input type="submit" value="Book Appointment">
     </form>
-
+    <a href="fetch_datesandtimes.php">click here for test</a>
 </body>
 
 </html>

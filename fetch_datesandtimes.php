@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
+$host = 'mysql-200-128.mysql.fasthosts.co.uk';
 $db   = 'CSY2088';
 $user = 'jclaveriepaul';
 $pass = 'jclaver1epaul';
@@ -20,10 +20,13 @@ try {
 
     $bookedDatesAndTimes = [];
     foreach ($bookedAppointments as $appointment) {
-        $date = date('d-m-Y', strtotime($appointment['date']));
+        $date = date('Y-m-d', strtotime($appointment['date']));
         $time = date('H:i', strtotime($appointment['appointmenttime']));
         $bookedDatesAndTimes[$date][] = $time;
     }
+
+    // Log the contents of the $bookedDatesAndTimes array
+    error_log(print_r($bookedDatesAndTimes, true));
 } catch (Exception $e) {
     // If an error occurs, return an empty array
     $bookedDatesAndTimes = [];
