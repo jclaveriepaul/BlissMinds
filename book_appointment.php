@@ -30,11 +30,11 @@ $clientphonenumber = !empty($_POST['clientphonenumber']) ? $_POST['clientphonenu
 $clientrequests = $_POST['clientrequests'] ?? 'Unknown';
 $date = $_POST['date'] ?? 'Unknown';
 $appointmenttype = $_POST['appointmenttype'] ?? 'Unknown';
+$appointmenttime = $_POST['appointmenttime'] ?? 'Unknown';
 
-
-$sql = "INSERT INTO BlissMinds (clientname, clientemail, clientphonenumber, clientrequests, date, appointmenttype) VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO BlissMinds (clientname, clientemail, clientphonenumber, clientrequests, date, appointmenttype, appointmenttime) VALUES (?, ?, ?, ?, ?, ?, ?)";
 $stmt= $pdo->prepare($sql);
-$stmt->execute([$clientname, $clientemail, $clientphonenumber, $clientrequests, $date, $appointmenttype]);
+$stmt->execute([$clientname, $clientemail, $clientphonenumber, $clientrequests, $date, $appointmenttype, $appointmenttime]);
 
 // Send an email to the user with the details of their appointment
 $to = $clientemail;
@@ -45,6 +45,7 @@ $message = "
     Here are the details of your appointment:
 
     Date: $date
+    Time: $appointmenttime
     Phone: $clientphonenumber
     Requests: $clientrequests
     Appointment Type: $appointmenttype

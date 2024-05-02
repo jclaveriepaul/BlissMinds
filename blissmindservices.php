@@ -1,3 +1,6 @@
+<?
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,24 +81,25 @@
         <hr>
     </div>
     <script>
-    document.querySelectorAll('.book-now-btn').forEach(function(button) {
-        button.addEventListener('click', function() {
-            var service = this.previousElementSibling.previousElementSibling.textContent;
-            var url = this.dataset.url;
+        document.querySelectorAll('.book-now-btn').forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                event.preventDefault(); // prevent the default action (redirect)
+                var service = this.parentElement.querySelector('p').textContent;
+                var url = this.getAttribute('href');
 
-            fetch('store_service.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'service=' + encodeURIComponent(service),
-            })
-            .then(function() {
-                window.location.href = url;
+                fetch('store_service.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'service=' + encodeURIComponent(service) + '&appointmenttype=' + encodeURIComponent(service),
+                })
+                    .then(function () {
+                        window.location.href = url;
+                    });
             });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
