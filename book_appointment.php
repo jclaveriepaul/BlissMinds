@@ -29,6 +29,9 @@ $clientemail = $_POST['clientemail'] ?? 'Unknown';
 $clientphonenumber = !empty($_POST['clientphonenumber']) ? $_POST['clientphonenumber'] : 'N/A';
 $clientrequests = $_POST['clientrequests'] ?? 'Unknown';
 $date = $_POST['date'] ?? 'Unknown';
+if ($date !== 'Unknown') {
+    $date = DateTime::createFromFormat('m/d/Y', $date)->format('Y-m-d');
+}
 $appointmenttype = $_POST['appointmenttype'] ?? 'Unknown';
 $appointmenttime = $_POST['appointmenttime'] ?? 'Unknown';
 
