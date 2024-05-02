@@ -55,28 +55,47 @@
         <div class="service">
             <p>Peer Support Network</p>
             <p>1hr</p>
-            <a class="book-now-btn" href="pspbook.php?appointmenttype=Peer Support Network">Book Now</a>
+            <a class="book-now-btn" href="pspbook.php">Book Now</a>
         </div>
         <hr>
         <div class="service">
             <p>Individual Therapy</p>
             <p>1hr</p>
-            <button onclick="itbook.php">Book Now</button>
+            <a class="book-now-btn" href="itbook.php">Book Now</a>
         </div>
         <hr>
         <div class="service">
             <p>Virtual Consultation</p>
             <p>1hr</p>
-            <button onclick="vcbook.php">Book Now</button>
+            <a class="book-now-btn" href="vcbook.php">Book Now</a>
         </div>
         <hr>
         <div class="service">
             <p>Relaxation Techniques</p>
             <p>1hr</p>
-            <button onclick="rtbook.php">Book Now</button>
+            <a class="book-now-btn" href="rtbook.php">Book Now</a>
         </div>
         <hr>
     </div>
+    <script>
+    document.querySelectorAll('.book-now-btn').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var service = this.previousElementSibling.previousElementSibling.textContent;
+            var url = this.dataset.url;
+
+            fetch('store_service.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'service=' + encodeURIComponent(service),
+            })
+            .then(function() {
+                window.location.href = url;
+            });
+        });
+    });
+</script>
 </body>
 
 </html>
