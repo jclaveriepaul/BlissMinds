@@ -29,7 +29,15 @@ $_SESSION['appointmenttype'] = $_SESSION['appointmenttype'] ?? 'Unknown';
                     onSelect: function (dateText) {
                         var bookedTimes = bookedDatesAndTimes[dateText] || [];
                         $('#timepicker').timepicker('option', 'disableTimeRanges', bookedTimes.map(function (time) {
-                            return [time, time];
+                            // Parse the time into hours and minutes
+                            var parts = time.split(':');
+                            var hours = parseInt(parts[0]);
+                            var minutes = parseInt(parts[1]);
+
+                            // Calculate the end time as one hour later
+                            var endTime = (hours + 1) % 24 + ':' + minutes;
+
+                            return [time, endTime];
                         }));
 
                         // Calculate the number of available sessions
