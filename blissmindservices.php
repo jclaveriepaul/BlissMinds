@@ -7,45 +7,8 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Booking</title>
-    <style>
-        body {
-            background-color: #FFF0EC;
-        }
-
-        h1 {
-            color: #000;
-            /* Dark text for the main heading */
-        }
-
-        h2 {
-            font-size: larger;
-            font-weight: bold;
-            /* Larger and bold font for the 'Our Services' heading */
-        }
-
-        .book-now-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #008080;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .services {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            align-content: center;
-        }
-
-        .service {
-            display: flex;
-            justify-content: space-between;
-            width: 50%;
-        }
-    </style>
 </head>
 
 <body>
