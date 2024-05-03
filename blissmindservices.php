@@ -58,25 +58,25 @@ session_start();
         <div class="service">
             <p>Peer Support Network</p>
             <p>1hr</p>
-            <a class="book-now-btn" href="pspbook.php">Book Now</a>
+            <a class="book-now-btn" href="pickapptdandt.php">Book Now</a>
         </div>
         <hr>
         <div class="service">
             <p>Individual Therapy</p>
             <p>1hr</p>
-            <a class="book-now-btn" href="itbook.php">Book Now</a>
+            <a class="book-now-btn" href="pickapptdandt.php">Book Now</a>
         </div>
         <hr>
         <div class="service">
             <p>Virtual Consultation</p>
             <p>1hr</p>
-            <a class="book-now-btn" href="vcbook.php">Book Now</a>
+            <a class="book-now-btn" href="pickapptdandt.php">Book Now</a>
         </div>
         <hr>
         <div class="service">
             <p>Relaxation Techniques</p>
             <p>1hr</p>
-            <a class="book-now-btn" href="rtbook.php">Book Now</a>
+            <a class="book-now-btn" href="pickapptdandt.php">Book Now</a>
         </div>
         <hr>
     </div>
