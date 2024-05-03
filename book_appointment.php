@@ -26,9 +26,13 @@ $clientphonenumber = !empty($_POST['clientphonenumber']) ? $_POST['clientphonenu
 $clientrequests = $_POST['clientrequests'] ?? 'Unknown';
 $date = $_POST['date'] ?? 'Unknown';
 if ($date !== 'Unknown') {
-    var_dump($date);
-    $date = DateTime::createFromFormat('d-m-Y', $date)->format('Y-m-d');
-    var_dump($date);
+    $dateTime = DateTime::createFromFormat('Y-m-d', $date);
+    if ($dateTime === false) {
+        // Handle the error, e.g. by setting a default date or showing an error message
+        echo "Invalid date format. Please use 'YYYY-MM-DD'.";
+    } else {
+        $formatted_date = $dateTime->format('F j, Y');
+    }
 }
 $appointmenttype = $_POST['appointmenttype'] ?? 'Unknown';
 $appointmenttime = $_POST['appointmenttime'] ?? 'Unknown';
