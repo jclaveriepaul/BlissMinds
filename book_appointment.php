@@ -56,5 +56,9 @@ $headers = "From: noreply@yourwebsite.com";
 
 mail($to, $subject, $message, $headers);
 
+echo "<div style='background-color: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px;'>
+    Hi $clientname, Thank you for booking a $appointmenttype appointment with us here at BlissMinds. We look forward to seeing you at $appointmenttime on $date.
+</div>";
+
 exit;
 ?>
