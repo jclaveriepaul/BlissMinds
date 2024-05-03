@@ -52,7 +52,7 @@ $message = "
     Appointment Type: $appointmenttype
 ";
 
-$headers = "From: noreply@yourwebsite.com";
+$headers = "From: noreply@blissminds.com";
 
 mail($to, $subject, $message, $headers);
 
