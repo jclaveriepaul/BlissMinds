@@ -53,7 +53,7 @@ $_SESSION['appointmenttype'] = $_SESSION['appointmenttype'] ?? 'Unknown';
             $('#timepicker').timepicker({
                 'scrollDefault': 'now',
                 'minTime': '08:00am',
-                'maxTime': '08:00pm',
+                'maxTime': '07:00pm',
                 'timeFormat': 'H:i',
                 'step': 60,
             });

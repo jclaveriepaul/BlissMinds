@@ -60,9 +60,25 @@ $headers = "From: noreply@blissminds.com";
 
 mail($to, $subject, $message, $headers);
 
+$to = "blissmindcouk@gmail.com";
+$subject = "New Appointment Booking";
+$message = "
+    A new appointment has been booked:
+
+    Client Name: $clientname
+    Client Requests: $clientrequests
+    Date: $date
+    Time: $appointmenttime
+    Appointment Type: $appointmenttype
+";
+
+mail($to, $subject, $message, $headers);
+
 echo "<div style='background-color: #f0f0f0; padding: 10px; margin: 10px 0; border-radius: 5px;'>
     Hi $clientname, Thank you for booking a $appointmenttype appointment with us here at BlissMinds. We look forward to seeing you at $appointmenttime on $date. Please check your email for booking confirmation.
+    <br><br>
+    <a href='destroy_session.php'>Return to Services</a>
 </div>";
 
-exit;
+exit();
 ?>
